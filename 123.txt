@@ -1,8 +1,0 @@
-Адресс:
-https://server100.hosting.reg.ru/phpmyadmin/db_structure.php?server=1&db=u1175838_default
-Логин:
-u1175838_guest
-Пароль:
-E3n1U0t2
-Название базы:
-u1175838_default
