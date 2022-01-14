@@ -1,14 +1,22 @@
 <?php
-	$ip = "https://server100.hosting.reg.ru/phpmyadmin/index.php";
+	$ip = "localhost";
 	$user = "u1175838_root";
 	$password = "nik010802_";
 	$table= "u1175838_default";
-
+	$img= imagecreatetruecolor(1000, 1000);
+	imagefill($img, 0, 0, imagecolorallocate($img, 215, 209, 209));
 	
-	$mysql = new mysqli(ip, user, password, table);
 	
+	$mysql = mysqli_connect($ip, $user, $password, $table);
 	if($mysql->connect_error){
-		die("Connection failed " .$mysql->+connect_error);
+		die("Ошибка в соединении: " .$mysql->connect_error);
 	}
-	echo "Connection succsessfull";
+	echo "Соединение успешно<br>" ;
+	$sql = mysqli_query($mysql, 'SELECT `r`, `g`, `b` FROM `colors_1`');
+    while ($result = mysqli_fetch_array($sql)) {
+        echo "{$result['r']} {$result['g']} {$result['b']}<br>";
+    }
+
+
 ?>
+
