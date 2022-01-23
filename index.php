@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
 
 <head>
+    
+	<script>
+		var name = 0;
+	</script>
 	<script src="scripts/jquery.js"></script>
-=======
-<head>
-    <script src="jquery.js"></script>
->>>>>>> d1f5d32f76d9366bfa731468036d544449b584a2
 	<meta charset="utf-8">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,9 +18,8 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-	<button class='b-1 CenterSmallBox'>Button</button>
-	<?php echo"<div class='out-block out-1'></div>"?>
+
+	<?php echo "<div class='out-block out-1'></div>" ?>
 	<!-- <header class="header">
 		<div class="header_top">
 			<div class="container">
@@ -46,48 +44,47 @@
 		</div>
 	</header> -->
 	<?php
-	$global_ip = $_POST;
 	$ip = "localhost";
 	$user = "u1175838_root";
 	$password = "nik010802_";
 	$table = "u1175838_default";
 	$mysql = mysqli_connect($ip, $user, $password, $table);
+
 	if ($mysql->connect_error) {
 		die("Ошибка в соединении: " . $mysql->connect_error);
 	}
 	mysqli_set_charset($mysql, "utf8");
 	$sql = mysqli_query($mysql, 'SELECT count(*) as CNT, global_id, District FROM `Data` GROUP BY District HAVING count(*)>=1');
-	echo "<select size='1' class='s-1'>";
-	while ($result = mysqli_fetch_array($sql)) {
-		echo "<option value = {$result['global_id']}>{$result['District']}<option>";
-	}
+        echo "<form method='post' action='form.php' name='d-1'> <select size='1' name='s-1' class='s-1'>";
+		while ($result = mysqli_fetch_array($sql)) {
+			echo "<option name = 'box' value = {$result['global_id']}>{$result['District']}<option>";
+		}
+		echo "<input type=submit name='b-1' class='b-1 CenterSmallBox'></button>";
+		echo "</select></form>";
+	
 	?>
 
 
-	<script src=scripts/script3.js></script>
+	<script src=scripts/script12.js>
+
+	</script>
+	<?php
+
+	// if (isset($_POST['u_name'])) {
+	// 	echo $_POST['u_name'] . '</p>';
+	// } else {
+	// 	echo "<script type='text/javascript'>";
+	// 	echo "document.write('<form method=\'post\'>');";
+	// 	echo "document.write('<p>Ваше имя:<br />');";
+	// 	echo "document.write('<input type=\'text\' name=\'u_name\' value = \'' + data + '\'</p>');";
+	// 	echo "document.write('<input type=\'submit\' />');";
+	// 	echo "document.write('</form>');";
+	// 	echo "</script>";
+
+	// 	exit();
+	// }
+	?>
+
 </body>
 
 </html>
-=======
-     <button class='b-1'>from input</button>
-     <div class='out-block out-1'></div>
-    <?php
-	    $ip = "localhost";
-	    $user = "u1175838_root";
-	    $password = "nik010802_";
-    	$table= "u1175838_default";
-	    $mysql = mysqli_connect($ip, $user, $password, $table);
-	    if($mysql->connect_error){
-		    die("Ошибка в соединении: " .$mysql->connect_error);
-	    }
-        mysqli_set_charset($mysql, "utf8");
-        $sql = mysqli_query($mysql, 'SELECT count(*) as CNT, global_id, District FROM `Data` GROUP BY District HAVING count(*)>=1');
-        echo"<select size='1' class='s-1'>";
-        while ($result = mysqli_fetch_array($sql)) {
-            echo"<option value = {$result['global_id']}>{$result['District']}<option>";
-    	}
-    ?>
-	    <script src =script1.js></script>
-	   </body>
-</html>
->>>>>>> d1f5d32f76d9366bfa731468036d544449b584a2
