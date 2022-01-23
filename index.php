@@ -57,7 +57,7 @@
 	$sql = mysqli_query($mysql, 'SELECT count(*) as CNT, global_id, District FROM `Data` GROUP BY District HAVING count(*)>=1');
         echo "<form method='post' action='form.php' name='d-1'> <select size='1' name='s-1' class='s-1'>";
 		while ($result = mysqli_fetch_array($sql)) {
-			echo "<option name = 'box' value = {$result['global_id']}>{$result['District']}<option>";
+			echo "<option name = 'box' value = {$result['global_id']}>{$result['District']}</option>";
 		}
 		echo "<input type=submit name='b-1' class='b-1 CenterSmallBox'></button>";
 		echo "</select></form>";
