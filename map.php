@@ -2,7 +2,7 @@
 
 <head>
     <script src="scripts/jquery.js"></script>
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=9963ebce-3a06-4aa4-870a-3396a36964cb&lang=ru_RU" type="text/javascript"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=89ece4c1-1306-4610-b11f-769d04119509&lang=ru_RU" type="text/javascript"></script>
     <meta charset="utf-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,36 +15,35 @@
 
 <body>
 <header class="header">
-		<div class="header_top">
-			<div class="container" style="height: 40px;">
-				<a href="http://feldbush.su">
-					<img class='header_logo' src="images/logo.png">
-				</a>
-				<a class="header_address" href="http://feldbush.su">feldbush.su</a>
-			</div>
-		</div>
-		<div class="header_content">
-			<div class="container">
-				<nav class="menu">
-					<ul>
-						<li><a href="index.php">Главная</a></li>
-						<li><a href="map.php">Карта</a></li>
-					</ul>
-				</nav>
-			</div>
-		</div>
+<div class="header_top">
+            <div class="container" style="height: 40px;">
+                <a href="http://feldbush.std-1610.ist.mospolytech.ru">
+                    <img class='header_logo' src="images/logo.png">
+                </a>
+                <a class="header_address" href="http://feldbush.std-1610.ist.mospolytech.ru">http://feldbush.std-1610.ist.mospolytech.ru</a>
+            </div>
+        </div>
+        <div class="header_content">
+            <div class="container">
+                <nav class="menu">
+                    <ul>
+                        <li><a href="index.php">Главная</a></li>
+                        <li><a href="map.php">Карта</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
 	</header>
     <?php
-    $global_ip = $_POST;
-    $ip = "localhost";
-    $user = "u1175838_root";
-    $password = "nik010802_";
-    $table = "u1175838_default";
-    $mysql = mysqli_connect($ip, $user, $password, $table);
-    mysqli_set_charset($mysql, "utf8");
-    if ($mysql->connect_error) {
-        die("Ошибка в соединении: " . $mysql->connect_error);
-    };
+    $ip = "std-mysql";
+	$user = "std_1610_010802";
+	$password = "nik010802";
+	$table = "std_1610_010802";
+	$mysql = mysqli_connect($ip, $user, $password, $table);
+
+	if ($mysql->connect_error) {
+		die("Ошибка в соединении: " . $mysql->connect_error);
+	}
     $Address= array();
     $lat = array();
     $lon = array();

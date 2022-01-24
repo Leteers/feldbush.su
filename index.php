@@ -17,10 +17,10 @@
 	<header class="header">
 		<div class="header_top">
 			<div class="container" style="height: 40px;">
-				<a href="http://feldbush.su">
+				<a href="http://feldbush.std-1610.ist.mospolytech.ru">
 					<img class='header_logo' src="images/logo.png">
 				</a>
-				<a class="header_address" href="http://feldbush.su">feldbush.su</a>
+				<a class="header_address" href="http://feldbush.std-1610.ist.mospolytech.ru">http://feldbush.std-1610.ist.mospolytech.ru</a>
 			</div>
 		</div>
 		<div class="header_content">
@@ -39,20 +39,21 @@
 		<h1 class="district_choise">Выберите ваш район:</h1>
 	</div>
 	<?php
-	$ip = "localhost";
-	$user = "u1175838_root";
-	$password = "nik010802_";
-	$table = "u1175838_default";
+	$ip = "std-mysql";
+	$user = "std_1610_010802";
+	$password = "nik010802";
+	$table = "std_1610_010802";
 	$mysql = mysqli_connect($ip, $user, $password, $table);
 
 	if ($mysql->connect_error) {
 		die("Ошибка в соединении: " . $mysql->connect_error);
 	}
 	mysqli_set_charset($mysql, "utf8");
-	$sql = mysqli_query($mysql, 'SELECT count(*) as CNT, global_id, District FROM `Data` GROUP BY District HAVING count(*)>=1');
+	$sql = mysqli_query($mysql, 'SELECT count(*) as CNT, District FROM `Data` GROUP BY District HAVING count(*)>=1');
 	echo "<div class ='container'><form method='post' action='form.php' name='d-1' > <select size='1' name='s-1' class='s-1'> <optgroup>";
 	while ($result = mysqli_fetch_array($sql)) {
-		echo "<option name = 'box' value = {$result['global_id']}>{$result['District']}</option>";
+        $x = $result['District'];
+		echo "<option name = 'box' value = '$x'>{$result['District']}</option>";
 	}
 	echo "</optgroup></select><button type=submit name='b-1' class='b-1 input_button'>Выбрать</button></form></div>";
 

@@ -2,7 +2,7 @@
 
 <head>
     <script src="scripts/jquery.js"></script>
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=9963ebce-3a06-4aa4-870a-3396a36964cb&lang=ru_RU" type="text/javascript"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=89ece4c1-1306-4610-b11f-769d04119509&lang=ru_RU" type="text/javascript"></script>
     <meta charset="utf-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,10 +17,10 @@
     <header class="header">
         <div class="header_top">
             <div class="container" style="height: 40px;">
-                <a href="http://feldbush.su">
+                <a href="http://feldbush.std-1610.ist.mospolytech.ru">
                     <img class='header_logo' src="images/logo.png">
                 </a>
-                <a class="header_address" href="http://feldbush.su">feldbush.su</a>
+                <a class="header_address" href="http://feldbush.std-1610.ist.mospolytech.ru">http://feldbush.std-1610.ist.mospolytech.ru</a>
             </div>
         </div>
         <div class="header_content">
@@ -36,15 +36,15 @@
     </header>
     <?php
     $global_ip = $_POST;
-    $ip = "localhost";
-    $user = "u1175838_root";
-    $password = "nik010802_";
-    $table = "u1175838_default";
+    $ip = "std-mysql";
+    $user = "std_1610_010802";
+    $password = "nik010802";
+    $table = "std_1610_010802";
     $mysql = mysqli_connect($ip, $user, $password, $table);
     mysqli_set_charset($mysql, "utf8");
     if ($mysql->connect_error) {
         die("Ошибка в соединении: " . $mysql->connect_error);
-    };
+    }
     $id = $_POST['s-1'];
     $Address = array();
     $lat = array();
@@ -52,7 +52,7 @@
     $k = 0;
     $x = 0;
     $z = 0;
-    $sql = mysqli_query($mysql, "SELECT * FROM `Data` WHERE District=(SELECT District FROM Data WHERE global_id=$id)");
+    $sql = mysqli_query($mysql, "SELECT * FROM `Data` WHERE District='$id'");
     while ($result = mysqli_fetch_array($sql)) {
         $x = $x + 1;
         $Address[] = $result['Address'];
@@ -73,7 +73,9 @@
             $k = $z + 1;
             echo "<p>$k) $Address[$z] </p>";
             $z = $z + 1;
-        } ?>
+        }
+        ?>
+
     </div>
 
     <div id="map" class="map container" style="width: 650px; height: 600px">
@@ -109,10 +111,10 @@
                         .add(objectManager)
                         .add(new ymaps.Placemark([lat[y], lon[y]], {
                             balloonContent: Address[y],
-                            iconContent: y+1
+                            iconContent: y + 1
                         }));
-            y++;
-            }
+                    y++;
+                }
             }
         </script>
     </div>
