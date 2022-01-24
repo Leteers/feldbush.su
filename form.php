@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@0;1&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
     <title>Елочные базары Москвы</title>
     <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/style29.css">
+    <link rel="stylesheet" href="styles/style31.css">
     <link rel="shortcut icon" href="images/favicon.ico">
 </head>
 
@@ -62,7 +62,7 @@
     ?>
     <div class="text_map">
         <?php
-        if ($x = 1) {
+        if ($x == 1) {
             echo "<h1>В вашем районе $x ёлочный базар. Его адрес:</h1>";
         } else if ($x >= 2 and $x < 5) {
             echo "<h1>В вашем районе $x ёлочных базара. Их адреса:</h1>";
@@ -70,7 +70,6 @@
             echo "<h1>В вашем районе $x ёлочных базаров. Их адреса:</h1>";
         }
         while ($z < $x) {
-            echo $k;
             $k = $z + 1;
             echo "<p>$k) $Address[$z] </p>";
             $z = $z + 1;
@@ -109,21 +108,22 @@
                     myMap.geoObjects
                         .add(objectManager)
                         .add(new ymaps.Placemark([lat[y], lon[y]], {
-                            balloonContent: Address[y]
+                            balloonContent: Address[y],
+                            iconContent: y+1
                         }));
-                    y++;
-                }
+            y++;
+            }
             }
         </script>
     </div>
     <div class="footer_bot">
-		<div class="container">
-			<footer class="bot_container">
-			    Есть вопросы или предложения? Обращайтесь: 
-				<a class="header_mail" href="mailto:help@feldbush.su"> help@feldbush.su</a>
-			</footer>
-		</div>
-	</div>
+        <div class="container">
+            <footer class="bot_container">
+                Есть вопросы или предложения? Обращайтесь:
+                <a class="header_mail" href="mailto:help@feldbush.su"> help@feldbush.su</a>
+            </footer>
+        </div>
+    </div>
 
 </body>
 

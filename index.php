@@ -9,7 +9,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@0;1&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 	<title>Елочные базары Москвы</title>
 	<link rel="stylesheet" href="styles/normalize.css">
-	<link rel="stylesheet" href="styles/style29.css">
+	<link rel="stylesheet" href="styles/style31.css">
 	<link rel="shortcut icon" href="images/favicon.ico">
 </head>
 
@@ -35,6 +35,7 @@
 		</div>
 	</header>
 	<div class="container">
+		<h1 class = "Search">Поиск ёлочных базаров в Москве</h1>
 		<h1 class="district_choise">Выберите ваш район:</h1>
 	</div>
 	<?php
