@@ -27,6 +27,12 @@ font-size: 14px;
 line-height: 18px;
 color:#543838;
 }
+.header_logo{
+	width: 30px;
+	height: 30px;
+	position: relative;
+    top: 10px;
+}
 .header_top{
 background-color: #C4C4C4;
 }
@@ -39,123 +45,57 @@ background-color: #C4C4C4;
 	color:black;
 	letter-spacing: 0.10px;
 	line-height: 45px;
+	position: relative;
+    left: 8px;
 }
-.HeaderBox{
-position: absolute;
-width: 1177px;
-height: 69px;
-left: 0px;
-top: 0px;
-background: #C4C4C4;
+.menu li {
+    position: relative;
+    left: 975px;
+    top: 20px;
+    display: inline-block;
 }
-.HeaderImage{
-	position: absolute;
-	width: 40px;
-	height: 60px;
-	left: 24px;
-	top: 2px;
-	
-	background-image: url(../images/IMG_9108.png);
+.menu a{
+	color: black;
+	font-size: 16px;
+	line-height: 36px;
+	border: 1px solid transparent;
+	padding: 0 16px;
+	transition: all 0.3s;
 }
-.HeaderText{
-position: absolute;
-width: 846px;
-height: 35px;
-left: 81px;
-top: 30px;
-
-font-family: Roboto;
-font-style: italic;
-font-weight: 300;
-font-size: 18px;
-line-height: 21px;
-
-color: #3DA70C;
+.menu li + li{
+	padding-left: 10px;
 }
-.Menu{
-position: absolute;
-width: 612px;
-height: 97px;
-left: 1308px;
-top: 0px;
+.menu a:hover{
+	border-color: #ffc222;
 }
-.MenuBox{
-position: absolute;
-width: 612px;
-height: 97px;
-left: 0px;
-top: 0px;
-
-background: #C4C4C4;
+.input_button {
+    position: absolute;
+    top: 500px;
+    left: 875px;
+    height: 30px;
+    width: 100px;
 }
-.MenuText{
-position: absolute;
-width: 170px;
-height: 54px;
-left: 40px;
-top: 30px;
-
-font-family: Roboto;
-font-style: italic;
-font-weight: normal;
-font-size: 18px;
-line-height: 21px;
-
-color: #000000;
+.s-1 {
+    position: absolute;
+    top: 440px;
+    width: 400px;
+    height: 40px;
+    left: 735px;
 }
-.Center{
-position: absolute;
-width: 825px;
-height: 241px;
-left: 547px;
-top: 392px;
+.district_choise {
+    position: absolute;
+    top: 380px;
+    left: 791px;
 }
-.CenterBigBox{
-position: absolute;
-width: 825px;
-height: 241px;
-left: 0px;
-top: 0px;
-
-background: #C4C4C4;
+.footer_bot{
+	height: 50px;
+    position: relative;
+    top: 840px;
+	background-color: #C4C4C4;
 }
-#CenterSmallBox{
-position: absolute;
-width: 214px;
-height: 48px;
-left: 306px;
-top: 175px;
-
-background: #543838;
+.bot_container{
+	float: left;
 }
-
-.CenterText{
-	position: absolute;
-width: 346px;
-height: 43px;
-left: 240px;
-top: 6px;
-
-font-family: Roboto;
-font-style: italic;
-font-weight: normal;
-font-size: 36px;
-line-height: 42px;
-
-
-color: #000000;
-}
-.Footer{
-position: absolute;
-width: 1920px;
-height: 144px;
-left: 0px;
-top: 936px;
-}
-.FooterBox{
-position: absolute;
-width: 1920px;
-height: 144px;
-left: 0px;
-top: 936px;
+optgroup{
+	font-size: 18px;
 }

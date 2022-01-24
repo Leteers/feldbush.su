@@ -25,13 +25,12 @@
     if ($mysql->connect_error) {
         die("Ошибка в соединении: " . $mysql->connect_error);
     };
-    $id = $_POST['s-1'];
     $Address= array();
     $lat = array();
     $lon = array();
     $x = 0;
     $z = 0;
-    $sql = mysqli_query($mysql, "SELECT * FROM `Data` WHERE District=(SELECT District FROM Data WHERE global_id=$id)");
+    $sql = mysqli_query($mysql, "SELECT * FROM `Data`");
     while ($result = mysqli_fetch_array($sql)) {
         $x = $x + 1;
         $Address[] = $result['Address'];

@@ -2,10 +2,6 @@
 <html>
 
 <head>
-    
-	<script>
-		var name = 0;
-	</script>
 	<script src="scripts/jquery.js"></script>
 	<meta charset="utf-8">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,36 +9,34 @@
 	<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@0;1&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 	<title>Елочные базары Москвы</title>
 	<link rel="stylesheet" href="styles/normalize.css">
-	<link rel="stylesheet" href="styles/style6.css">
+	<link rel="stylesheet" href="styles/style21.css">
 	<link rel="shortcut icon" href="images/favicon.ico">
 </head>
 
 <body>
-
-	<?php echo "<div class='out-block out-1'></div>" ?>
-	<!-- <header class="header">
+	<header class="header">
 		<div class="header_top">
-			<div class="container">
-				<a class="header_mail" href="mailto:help@feldbush.su">help@feldbush.su</a>
-				<a class="header_address" href="https//feldbush.su">feldbush.su</a>
+			<div class="container" style="height: 40px;">
+				<a href="http://feldbush.su">
+					<img class='header_logo' src="images/logo.png">
+				</a>
+				<a class="header_address" href="http://feldbush.su">feldbush.su</a>
 			</div>
 		</div>
 		<div class="header_content">
 			<div class="container">
-				<div class="header_logo">
-					<a href="#">
-						<img src="images/logo.png">
-					</a>
-				</div>
 				<nav class="menu">
 					<ul>
-						<li><a href="#">Главная</a></li>
-						<li><a href="#">О сайте</a></li>
+						<li><a href="index.php">Главная</a></li>
+						<li><a href="map.php">Карта</a></li>
 					</ul>
 				</nav>
 			</div>
 		</div>
-	</header> -->
+	</header>
+	<div class="container">
+		<h1 class="district_choise">Выберите ваш район:</h1>
+	</div>
 	<?php
 	$ip = "localhost";
 	$user = "u1175838_root";
@@ -55,36 +49,21 @@
 	}
 	mysqli_set_charset($mysql, "utf8");
 	$sql = mysqli_query($mysql, 'SELECT count(*) as CNT, global_id, District FROM `Data` GROUP BY District HAVING count(*)>=1');
-        echo "<form method='post' action='form.php' name='d-1'> <select size='1' name='s-1' class='s-1'>";
-		while ($result = mysqli_fetch_array($sql)) {
-			echo "<option name = 'box' value = {$result['global_id']}>{$result['District']}</option>";
-		}
-		echo "<input type=submit name='b-1' class='b-1 CenterSmallBox'></button>";
-		echo "</select></form>";
-	
+	echo "<div class ='container'><form method='post' action='form.php' name='d-1' > <select size='1' name='s-1' class='s-1'> <optgroup>";
+	while ($result = mysqli_fetch_array($sql)) {
+		echo "<option name = 'box' value = {$result['global_id']}>{$result['District']}</option>";
+	}
+	echo "</optgroup></select><button type=submit name='b-1' class='b-1 input_button'>Выбрать</button></form></div>";
+
 	?>
-
-
-	<script src=scripts/script12.js>
-
-	</script>
-	<?php
-
-	// if (isset($_POST['u_name'])) {
-	// 	echo $_POST['u_name'] . '</p>';
-	// } else {
-	// 	echo "<script type='text/javascript'>";
-	// 	echo "document.write('<form method=\'post\'>');";
-	// 	echo "document.write('<p>Ваше имя:<br />');";
-	// 	echo "document.write('<input type=\'text\' name=\'u_name\' value = \'' + data + '\'</p>');";
-	// 	echo "document.write('<input type=\'submit\' />');";
-	// 	echo "document.write('</form>');";
-	// 	echo "</script>";
-
-	// 	exit();
-	// }
-	?>
-
+	<div class="footer_bot">
+		<div class="container">
+			<footer class="bot_container">
+			    Есть вопросы или предложения? Обращайтесь: 
+				<a class="header_mail" href="mailto:help@feldbush.su"> help@feldbush.su</a>
+			</footer>
+		</div>
+	</div>
 </body>
 
 </html>
