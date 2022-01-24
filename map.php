@@ -9,11 +9,31 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@0;1&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
     <title>Елочные базары Москвы</title>
     <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/style6.css">
+    <link rel="stylesheet" href="styles/style29.css">
     <link rel="shortcut icon" href="images/favicon.ico">
 </head>
 
 <body>
+<header class="header">
+		<div class="header_top">
+			<div class="container" style="height: 40px;">
+				<a href="http://feldbush.su">
+					<img class='header_logo' src="images/logo.png">
+				</a>
+				<a class="header_address" href="http://feldbush.su">feldbush.su</a>
+			</div>
+		</div>
+		<div class="header_content">
+			<div class="container">
+				<nav class="menu">
+					<ul>
+						<li><a href="index.php">Главная</a></li>
+						<li><a href="map.php">Карта</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
     <?php
     $global_ip = $_POST;
     $ip = "localhost";
@@ -39,7 +59,7 @@
     }
     ?>
 
-    <div id="map" style="width: 600px; height: 400px">
+    <div id="map" class="map_2 container" style="width: 1170px; height: 800px">
         <script>
             ymaps.ready(init);
             var z = 0;
@@ -78,7 +98,14 @@
             }
         </script>
     </div>
-
+    <div class="footer_bot">
+		<div class="container">
+			<footer class="bot_container">
+			    Есть вопросы или предложения? Обращайтесь: 
+				<a class="header_mail" href="mailto:help@feldbush.su"> help@feldbush.su</a>
+			</footer>
+		</div>
+	</div>
 </body>
 
 </html>

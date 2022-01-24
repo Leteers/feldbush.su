@@ -9,11 +9,31 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@0;1&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
     <title>Елочные базары Москвы</title>
     <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/style6.css">
+    <link rel="stylesheet" href="styles/style29.css">
     <link rel="shortcut icon" href="images/favicon.ico">
 </head>
 
 <body>
+    <header class="header">
+        <div class="header_top">
+            <div class="container" style="height: 40px;">
+                <a href="http://feldbush.su">
+                    <img class='header_logo' src="images/logo.png">
+                </a>
+                <a class="header_address" href="http://feldbush.su">feldbush.su</a>
+            </div>
+        </div>
+        <div class="header_content">
+            <div class="container">
+                <nav class="menu">
+                    <ul>
+                        <li><a href="index.php">Главная</a></li>
+                        <li><a href="map.php">Карта</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
     <?php
     $global_ip = $_POST;
     $ip = "localhost";
@@ -26,9 +46,10 @@
         die("Ошибка в соединении: " . $mysql->connect_error);
     };
     $id = $_POST['s-1'];
-    $Address= array();
+    $Address = array();
     $lat = array();
     $lon = array();
+    $k = 0;
     $x = 0;
     $z = 0;
     $sql = mysqli_query($mysql, "SELECT * FROM `Data` WHERE District=(SELECT District FROM Data WHERE global_id=$id)");
@@ -39,8 +60,24 @@
         $lon[] = $result['Longitude_WGS84'];
     }
     ?>
+    <div class="text_map">
+        <?php
+        if ($x = 1) {
+            echo "<h1>В вашем районе $x ёлочный базар. Его адрес:</h1>";
+        } else if ($x >= 2 and $x < 5) {
+            echo "<h1>В вашем районе $x ёлочных базара. Их адреса:</h1>";
+        } else {
+            echo "<h1>В вашем районе $x ёлочных базаров. Их адреса:</h1>";
+        }
+        while ($z < $x) {
+            echo $k;
+            $k = $z + 1;
+            echo "<p>$k) $Address[$z] </p>";
+            $z = $z + 1;
+        } ?>
+    </div>
 
-    <div id="map" style="width: 600px; height: 400px">
+    <div id="map" class="map container" style="width: 650px; height: 600px">
         <script>
             ymaps.ready(init);
             var z = 0;
@@ -79,6 +116,14 @@
             }
         </script>
     </div>
+    <div class="footer_bot">
+		<div class="container">
+			<footer class="bot_container">
+			    Есть вопросы или предложения? Обращайтесь: 
+				<a class="header_mail" href="mailto:help@feldbush.su"> help@feldbush.su</a>
+			</footer>
+		</div>
+	</div>
 
 </body>
 
